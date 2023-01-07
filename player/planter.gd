@@ -3,7 +3,7 @@ extends Node2D
 onready var area: Area2D = $Area2D
 export var reach: float
 onready var reach_sq = reach * reach 
-onready var player: Node2D = get_tree().get_nodes_in_group("player")[0]
+onready var player = get_tree().get_nodes_in_group("player")[0]
 
 
 func _process(_delta):

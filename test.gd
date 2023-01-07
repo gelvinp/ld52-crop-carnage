@@ -1,7 +1,12 @@
 extends Node2D
 
 onready var ysort: YSort = $YSort
-var plant_pck := preload("res://plants/plant.tscn")
+var plants = {
+	Plant.TYPE.CORN: preload("res://plants/Corn.tscn"),
+	Plant.TYPE.POME: preload("res://plants/Pome.tscn"),
+	Plant.TYPE.PUMP: preload("res://plants/Pump.tscn"),
+}
+onready var player: Player = $YSort/Player
 
 
 func _ready():
@@ -9,6 +14,6 @@ func _ready():
 
 
 func _on_plant():
-	var plant = plant_pck.instance()
+	var plant = plants[player.selected_plantable].instance()
 	plant.global_position = get_global_mouse_position()
 	ysort.add_child(plant)
