@@ -2,9 +2,9 @@ class_name Plant
 extends Node2D
 
 enum TYPE {
-	CORN,
-	POME,
-	PUMP
+	CORN = 0,
+	POME = 1,
+	PUMP = 2
 }
 
 enum STATE {
@@ -22,12 +22,14 @@ var state = STATE.GROWING
 onready var health = max_health
 onready var timer: Timer = $Timer
 onready var progress: TextureProgress = $TextureProgress
+onready var crop: AnimatedSprite = $Crop
 
 
 func _ready():
 	timer.wait_time = growth_time
 	timer.start()
 	progress.max_value = growth_time
+	crop.frame = 3
 
 
 func _process(_delta):
@@ -54,3 +56,5 @@ func grow_now():
 func _on_Timer_timeout():
 	if state == STATE.GROWING:
 		state = STATE.HARVESTABLE
+		progress.value = growth_time
+		crop.frame = type

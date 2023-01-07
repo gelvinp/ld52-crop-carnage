@@ -7,8 +7,5 @@ growth_time = 20.0
 max_health = 20
 type = 2
 
-[node name="ColorRect" type="ColorRect" parent="." index="2"]
-margin_left = -6.0
-margin_top = -12.0
-margin_right = 7.0
-color = Color( 1, 0.584314, 0, 1 )
+[node name="Crop" parent="." index="3"]
+frame = 0
