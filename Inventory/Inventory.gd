@@ -35,6 +35,7 @@ func _ready():
 	
 	EventBus.connect("plant", self, "_on_planted")
 	EventBus.connect("water", self, "spend_item", [ITEM.WATER])
+	EventBus.connect("harvest", self, "gain_item")
 
 
 func _unhandled_input(event):

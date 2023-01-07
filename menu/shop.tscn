@@ -1,63 +1,645 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/corn-seed-packet.png" type="Texture" id=1]
+[ext_resource path="res://sprites/circle-16.png" type="Texture" id=2]
+[ext_resource path="res://sprites/pome-seed-packet.png" type="Texture" id=3]
+[ext_resource path="res://sprites/corn.png" type="Texture" id=4]
+[ext_resource path="res://sprites/pump.png" type="Texture" id=5]
+[ext_resource path="res://sprites/pome.png" type="Texture" id=6]
+[ext_resource path="res://sprites/pump-seed-packet.png" type="Texture" id=7]
+[ext_resource path="res://menu/shop.gd" type="Script" id=8]
+[ext_resource path="res://sprites/watering-can.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.105882, 0.105882, 0.105882, 0.439216 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[node name="PauseMenu" type="PanelContainer"]
+[node name="Shop" type="PanelContainer"]
 pause_mode = 2
 margin_right = 200.0
 margin_bottom = 200.0
 custom_styles/panel = SubResource( 1 )
+script = ExtResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 200.0
 margin_bottom = 200.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 200.0
-margin_bottom = 200.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 195.0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 190.0
+margin_bottom = 38.0
+columns = 4
+
+[node name="CornSeeds" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_right = 45.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/CornSeeds"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/CornSeeds"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="PomeSeeds" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 49.0
+margin_right = 94.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/PomeSeeds"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/PomeSeeds"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="PumpSeeds" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 98.0
+margin_right = 142.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/PumpSeeds"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/PumpSeeds"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Coins" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 146.0
+margin_right = 190.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/Coins"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Coins"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Corn" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_top = 21.0
+margin_right = 45.0
+margin_bottom = 38.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/Corn"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Corn"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Pome" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 49.0
+margin_top = 21.0
+margin_right = 94.0
+margin_bottom = 38.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/Pome"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Pome"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Pump" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 98.0
+margin_top = 21.0
+margin_right = 142.0
+margin_bottom = 38.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/Pump"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Pump"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Water" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_left = 146.0
+margin_top = 21.0
+margin_right = 190.0
+margin_bottom = 38.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer/Water"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Water"]
+margin_left = 20.0
+margin_right = 26.0
+margin_bottom = 17.0
+text = "1"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 176.0
+margin_top = 42.0
+margin_right = 190.0
+margin_bottom = 163.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-margin_right = 98.0
-margin_bottom = 20.0
+margin_right = 178.0
+margin_bottom = 213.0
+size_flags_horizontal = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_right = 98.0
-margin_bottom = 20.0
+[node name="CornSeeds" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 178.0
+margin_bottom = 27.0
 custom_styles/panel = SubResource( 2 )
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
-margin_right = 98.0
-margin_bottom = 20.0
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
-margin_right = 98.0
-margin_bottom = 20.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer/HBoxContainer"]
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 17.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer/HBoxContainer"]
 margin_left = 20.0
-margin_top = 3.0
+margin_right = 80.0
+margin_bottom = 17.0
+text = "Corn Seeds"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer/HBoxContainer"]
+margin_left = 84.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 58.0
+margin_right = 64.0
+margin_bottom = 17.0
+text = "5"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 68.0
+margin_right = 84.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="PomeSeeds" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 178.0
+margin_bottom = 58.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 110.0
+margin_bottom = 17.0
+text = "Pomegran. Seeds"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer"]
+margin_left = 114.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 28.0
+margin_right = 34.0
+margin_bottom = 17.0
+text = "5"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 38.0
+margin_right = 54.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="PumpSeeds" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 178.0
+margin_bottom = 89.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer/HBoxContainer"]
+margin_left = 20.0
 margin_right = 98.0
 margin_bottom = 17.0
-text = "Item To Buy"
+text = "Pumpkin Seeds"
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 180.0
-margin_right = 200.0
-margin_bottom = 200.0
-text = "Resume"
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer/HBoxContainer"]
+margin_left = 102.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 40.0
+margin_right = 46.0
+margin_bottom = 17.0
+text = "8"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 50.0
+margin_right = 66.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="Corn" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 178.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 44.0
+margin_bottom = 17.0
+text = "Corn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 100.0
+margin_bottom = 17.0
+text = "10"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 104.0
+margin_right = 120.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="Pome" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 178.0
+margin_bottom = 151.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 86.0
+margin_bottom = 17.0
+text = "Pomegranate"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 46.0
+margin_right = 58.0
+margin_bottom = 17.0
+text = "10"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 62.0
+margin_right = 78.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="Pumpkin" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 155.0
+margin_right = 178.0
+margin_bottom = 182.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 62.0
+margin_bottom = 17.0
+text = "Pumpkin"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 70.0
+margin_right = 82.0
+margin_bottom = 17.0
+text = "15"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 86.0
+margin_right = 102.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="Water" type="PanelContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 178.0
+margin_bottom = 213.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water"]
+margin_right = 178.0
+margin_bottom = 27.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water"]
+margin_right = 178.0
+margin_bottom = 27.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 173.0
+margin_bottom = 22.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 17.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer/HBoxContainer"]
+margin_left = 20.0
+margin_right = 92.0
+margin_bottom = 17.0
+text = "Watering Can"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 168.0
+margin_bottom = 17.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 40.0
+margin_right = 52.0
+margin_bottom = 17.0
+text = "15"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/MarginContainer/HBoxContainer/HBoxContainer"]
+modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
+margin_left = 56.0
+margin_right = 72.0
+margin_bottom = 16.0
+mouse_filter = 2
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+
+[node name="ExitShop" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 167.0
+margin_right = 190.0
+margin_bottom = 190.0
+text = "Exit Shop"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CornSeeds/Button" to="." method="_attempt_purchase" binds= [ 3, 5 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/Button" to="." method="_attempt_purchase" binds= [ 4, 5 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PumpSeeds/Button" to="." method="_attempt_purchase" binds= [ 5, 8 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Corn/Button" to="." method="_attempt_purchase" binds= [ 0, 10 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pome/Button" to="." method="_attempt_purchase" binds= [ 1, 10 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Pumpkin/Button" to="." method="_attempt_purchase" binds= [ 2, 15 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Water/Button" to="." method="_attempt_purchase" binds= [ 6, 15 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitShop" to="." method="_on_ExitShop_pressed"]

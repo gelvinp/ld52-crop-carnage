@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/corn-seed-packet.png" type="Texture" id=1]
 [ext_resource path="res://sprites/pome.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/corn.png" type="Texture" id=6]
 [ext_resource path="res://sprites/ui-inventory-slot.png" type="Texture" id=7]
 [ext_resource path="res://Inventory/InventoryItem.gd" type="Script" id=8]
+[ext_resource path="res://sprites/watering-can.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0 )
@@ -34,7 +35,7 @@ frame_4/texture = ExtResource( 5 )
 frame_4/delay_sec = 0.0
 frame_5/texture = ExtResource( 3 )
 frame_5/delay_sec = 0.0
-frame_6/texture = SubResource( 2 )
+frame_6/texture = ExtResource( 10 )
 frame_6/delay_sec = 0.0
 frame_7/texture = SubResource( 2 )
 frame_7/delay_sec = 0.0

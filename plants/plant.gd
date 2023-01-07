@@ -39,6 +39,15 @@ func _process(_delta):
 
 func harvest():
 	if state == STATE.HARVESTABLE:
+		var chance = randf()
+		
+		if chance <= 0.6:
+			EventBus.emit_signal("harvest", type, 3)
+		elif chance <= 0.9:
+			EventBus.emit_signal("harvest", type, 4)
+		else:
+			EventBus.emit_signal("harvest", type, 5)
+		
 		die()
 
 
@@ -48,9 +57,12 @@ func die():
 		queue_free()
 
 
-func grow_now():
+func grow_now() -> bool:
 	if state == STATE.GROWING:
 		timer.start(0.1)
+		return true
+	
+	return false
 
 
 func _on_Timer_timeout():

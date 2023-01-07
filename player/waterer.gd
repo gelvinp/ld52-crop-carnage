@@ -19,14 +19,16 @@ func _input(event):
 		if _is_valid():
 			var overlapping = area.get_overlapping_areas()
 			
-			if not overlapping.empty():
-				EventBus.emit_signal("water")
+			var watered = false
 			
 			for plant in overlapping:
 				var potential = plant.get_parent()
 				
 				if potential is Plant:
-					potential.grow_now()
+					watered = potential.grow_now() or watered
+			
+			if watered:
+				EventBus.emit_signal("water")
 		
 		queue_free()
 

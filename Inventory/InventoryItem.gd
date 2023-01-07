@@ -43,7 +43,7 @@ func get_quantity():
 
 func set_selected(new_selected):
 	selected = new_selected
-	base_tr.modulate = Color.white if new_selected else HALF_TRANSPARENT
+	base_tr.modulate = Color.teal if new_selected else HALF_TRANSPARENT
 
 
 func get_selected():
