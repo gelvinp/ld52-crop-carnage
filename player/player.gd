@@ -40,6 +40,17 @@ func _unhandled_input(event):
 		scythe.attack(self, "")
 		animation.play("attack")
 		animation.connect("animation_finished", self, "_attack_finished", [], CONNECT_ONESHOT)
+		
+		# Find correct place for scythe
+		var mouse_offset = get_global_mouse_position() - global_position
+		if abs(mouse_offset.x) >= abs(mouse_offset.y):
+			# Horizontal
+			scythe.position.y = -30
+			scythe.position.x = 16 * sign(mouse_offset.x)
+		else:
+			# Vertical
+			scythe.position.x = 0
+			scythe.position.y = 30 * sign(mouse_offset.y) - 30
 
 
 func _attack_finished():

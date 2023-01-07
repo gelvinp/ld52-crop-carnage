@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var color: ColorRect = $ColorRect
+onready var color: TextureRect = $ColorRect
 onready var area: Area2D = $Area2D
 onready var anim: AnimationPlayer = $AnimationPlayer
 
