@@ -9,7 +9,7 @@ onready var crop: AnimatedSprite = $Crop
 
 func _process(_delta):
 	global_position = get_global_mouse_position()
-	crop.frame = player.selected_plantable
+	crop.frame = player.inventory.selected_item % 3
 	modulate = Color.white if _is_valid() else Color.red
 
 

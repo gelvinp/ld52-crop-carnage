@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node"]
 pause_mode = 1
@@ -14,3 +15,13 @@ script = ExtResource( 3 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 1 )]
 visible = false
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -72.0
+margin_top = -5.0
+margin_right = 72.0
+margin_bottom = -5.0

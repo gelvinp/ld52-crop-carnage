@@ -14,6 +14,6 @@ func _ready():
 
 
 func _on_plant():
-	var plant = plants[player.selected_plantable].instance()
+	var plant = plants[player.inventory.selected_item % 3].instance()
 	plant.global_position = get_global_mouse_position()
 	ysort.add_child(plant)

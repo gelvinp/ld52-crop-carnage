@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/corn-seed-packet.png" type="Texture" id=1]
+[ext_resource path="res://sprites/pome.png" type="Texture" id=2]
+[ext_resource path="res://sprites/pump-seed-packet.png" type="Texture" id=3]
+[ext_resource path="res://sprites/pump.png" type="Texture" id=4]
+[ext_resource path="res://sprites/pome-seed-packet.png" type="Texture" id=5]
+[ext_resource path="res://sprites/corn.png" type="Texture" id=6]
+[ext_resource path="res://sprites/ui-inventory-slot.png" type="Texture" id=7]
+[ext_resource path="res://Inventory/InventoryItem.gd" type="Script" id=8]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 16
+height = 16
+fill_from = Vector2( 0.0145833, 0.0175573 )
+
+[sub_resource type="AnimatedTexture" id=3]
+resource_local_to_scene = true
+frames = 8
+pause = true
+fps = 0.0
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 2 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 4 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 1 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 5 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 3 )
+frame_5/delay_sec = 0.0
+frame_6/texture = SubResource( 2 )
+frame_6/delay_sec = 0.0
+frame_7/texture = SubResource( 2 )
+frame_7/delay_sec = 0.0
+
+[node name="InventoryItem" type="Control"]
+margin_right = 16.0
+margin_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 8 )
+
+[node name="Base" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -7.0
+margin_right = 8.0
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -16.0
+margin_right = 8.0
+texture = SubResource( 3 )
+
+[node name="Quantity" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -14.0
+margin_right = 9.0
+size_flags_horizontal = 8
+align = 2
