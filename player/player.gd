@@ -6,6 +6,7 @@ var planter_pck := preload("res://player/planter.tscn")
 var waterer_pck := preload("res://player/waterer.tscn")
 onready var scythe := $Scythe
 onready var inventory: Inventory = get_tree().get_nodes_in_group("inventory")[0]
+onready var animation: AnimatedSprite = $AnimatedSprite
 
 var attacking := false
 
@@ -18,6 +19,16 @@ func _physics_process(_delta: float) -> void:
 	if not attacking:
 		var movement = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		move_and_slide(movement * speed)
+		
+		if movement.is_equal_approx(Vector2.ZERO):
+			if animation.animation != "idle":
+				animation.play("idle")
+		else:
+			if animation.animation != "walk":
+				animation.play("walk")
+			
+			if movement.x != 0:
+				animation.scale.x = sign(movement.x)
 
 
 func _unhandled_input(event):
@@ -26,7 +37,9 @@ func _unhandled_input(event):
 		get_tree().get_root().add_child(planter)
 	elif event.is_action_pressed("attack") and not attacking:
 		attacking = true
-		scythe.attack(self, "_attack_finished")
+		scythe.attack(self, "")
+		animation.play("attack")
+		animation.connect("animation_finished", self, "_attack_finished", [], CONNECT_ONESHOT)
 
 
 func _attack_finished():
