@@ -17,7 +17,12 @@ func _process(_delta):
 func _input(event):
 	if event.is_action_released("plant"):
 		if _is_valid():
-			for plant in area.get_overlapping_areas():
+			var overlapping = area.get_overlapping_areas()
+			
+			if not overlapping.empty():
+				EventBus.emit_signal("water")
+			
+			for plant in overlapping:
 				var potential = plant.get_parent()
 				
 				if potential is Plant:

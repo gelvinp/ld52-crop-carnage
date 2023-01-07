@@ -30,10 +30,11 @@ onready var scroll_timer: Timer = $ScrollTimer
 func _ready():
 	# Demo shit
 	gain_item(ITEM.CORN)
-	gain_item(ITEM.PUMP)
+	gain_item(ITEM.WATER)
 	select_item(ITEM.CORN)
 	
 	EventBus.connect("plant", self, "_on_planted")
+	EventBus.connect("water", self, "spend_item", [ITEM.WATER])
 
 
 func _unhandled_input(event):
@@ -113,7 +114,7 @@ func select_in_direction(direction):
 	while true:
 		next += direction
 		
-		if next > ITEM.PUMP_SEED:
+		if next > ITEM.WATER:
 			next -= ITEM.NOTHING
 		elif next < ITEM.CORN:
 			next += ITEM.NOTHING
