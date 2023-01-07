@@ -297,12 +297,12 @@ texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer"]
 margin_left = 20.0
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 17.0
-text = "Pomegran. Seeds"
+text = "Pomegranate Seeds"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer"]
-margin_left = 114.0
+margin_left = 126.0
 margin_right = 168.0
 margin_bottom = 17.0
 mouse_filter = 2
@@ -310,15 +310,15 @@ size_flags_horizontal = 3
 alignment = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
-margin_left = 28.0
-margin_right = 34.0
+margin_left = 16.0
+margin_right = 22.0
 margin_bottom = 17.0
 text = "5"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PomeSeeds/MarginContainer/HBoxContainer/HBoxContainer"]
 modulate = Color( 0.878431, 0.788235, 0.0470588, 1 )
-margin_left = 38.0
-margin_right = 54.0
+margin_left = 26.0
+margin_right = 42.0
 margin_bottom = 16.0
 mouse_filter = 2
 size_flags_vertical = 4
