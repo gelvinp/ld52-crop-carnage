@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fonts/VT323-small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://images/player.png" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://images/pickups.png" type="Texture" id=8]
 [ext_resource path="res://images/gameplay.png" type="Texture" id=9]
 [ext_resource path="res://menu/tutorial.gd" type="Script" id=10]
+[ext_resource path="res://sprites/ui-left-hover.png" type="Texture" id=11]
+[ext_resource path="res://sprites/ui-right-hover.png" type="Texture" id=12]
+[ext_resource path="res://sprites/ui-right.png" type="Texture" id=13]
+[ext_resource path="res://sprites/ui-left.png" type="Texture" id=14]
 
 [node name="Node2D" type="Control"]
 margin_right = 200.0
@@ -42,9 +46,13 @@ margin_right = 192.0
 margin_bottom = 159.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
+custom_icons/increment_highlight = ExtResource( 12 )
+custom_icons/increment = ExtResource( 13 )
+custom_icons/decrement_highlight = ExtResource( 11 )
+custom_icons/decrement = ExtResource( 14 )
 use_hidden_tabs_for_min_size = true
 
-[node name="Introduction" type="Control" parent="MarginContainer/VBoxContainer/TabContainer"]
+[node name="Introduction" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -52,12 +60,25 @@ margin_top = 25.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Introduction"]
+margin_right = 184.0
+margin_bottom = 37.0
+size_flags_vertical = 3
+
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Introduction"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_top = 41.0
+margin_right = 184.0
+margin_bottom = 88.0
+size_flags_vertical = 5
 custom_fonts/font = ExtResource( 1 )
 text = "Crop Carnage is a base-defense style shooter, with a twist. Your crops and your guns are the same thing! Plant new crops to keep a continuous supply of ammunition, but don’t replant your entire yield, or you’ll only have your scythe to defend yourself with! With three different crops to grow, and three different weapons to wield, how long will you be able to defend your farm from the hordes of zombies lurking in the forest?"
 autowrap = true
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Introduction"]
+margin_top = 92.0
+margin_right = 184.0
+margin_bottom = 130.0
+size_flags_vertical = 3
 
 [node name="Basics" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
 visible = false

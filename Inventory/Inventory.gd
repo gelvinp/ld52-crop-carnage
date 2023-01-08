@@ -34,8 +34,7 @@ onready var scroll_timer: Timer = $ScrollTimer
 
 func _ready():
 	# Demo shit
-	gain_item(ITEM.CORN)
-	gain_item(ITEM.PUMP)
+	gain_item(ITEM.CORN, 2)
 	gain_item(ITEM.WATER)
 	select_item(ITEM.CORN)
 	
