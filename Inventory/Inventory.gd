@@ -22,6 +22,10 @@ onready var items = [
 	$Water
 ]
 
+const silly_corn = ["Go Pop Yourself!", "Come 'Ear And Die!"]
+const silly_pome = ["I'll Pome-el you!", "Take This Pome-machine Gun!"]
+const silly_pump = ["En Gourd!", "I'll Hollow You Out!"] # I really fucked myself over here, I can't top this
+
 var selected_item = ITEM.NOTHING setget select_item, get_selected_item
 
 onready var scroll_timer: Timer = $ScrollTimer
@@ -66,6 +70,26 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("item_prev"):
 		select_in_direction(-1)
 		get_tree().set_input_as_handled()
+	elif event.is_action_pressed("equip"):
+		ammunize()
+		get_tree().set_input_as_handled()
+
+
+func ammunize():
+	match selected_item:
+		ITEM.CORN:
+			EventBus.emit_signal("ammunize", Weapon.TYPE.CORN, randi() % 3 + 3)
+			EventBus.emit_signal("silly", silly_corn[randi() % silly_corn.size()])
+		ITEM.POME:
+			EventBus.emit_signal("ammunize", Weapon.TYPE.POME, randi() % 3 + 5)
+			EventBus.emit_signal("silly", silly_pome[randi() % silly_pome.size()])
+		ITEM.PUMP:
+			EventBus.emit_signal("ammunize", Weapon.TYPE.PUMP, 2 if randf() >= 0.9 else 1)
+			EventBus.emit_signal("silly", silly_pump[randi() % silly_pump.size()])
+		_:
+			return
+	
+	spend_item(selected_item)
 
 
 func gain_item(item, quantity = 1):

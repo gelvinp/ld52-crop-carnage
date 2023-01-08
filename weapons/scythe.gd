@@ -22,3 +22,7 @@ func _do_attack():
 		
 		if potential is Plant:
 			potential.harvest()
+	
+	for a in area.get_overlapping_bodies():
+		if a is Enemy:
+			a.damage(10)

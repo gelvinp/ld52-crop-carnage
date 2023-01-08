@@ -11,3 +11,7 @@ func _unhandled_input(event):
 		visible = false
 		get_tree().paused = false
 		get_tree().set_input_as_handled()
+
+
+func _on_Button2_pressed():
+	get_tree().change_scene("res://menu/menu.tscn")
