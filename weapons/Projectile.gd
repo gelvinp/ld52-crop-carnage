@@ -12,7 +12,6 @@ func _physics_process(_delta):
 		if collision.collider.name == "Enemy":
 			collision.collider.damage(damage)
 		elif collision.collider.name == "Player":
-			#collision.collider.damage(damage)
-			print("Damage player ", str(damage))
+			collision.collider.set_health(collision.collider.get_health() - damage)
 		
 		queue_free()

@@ -22,11 +22,12 @@ onready var items = [
 	$Water
 ]
 
-const silly_corn = ["Go Pop Yourself!", "Come 'Ear And Die!"]
-const silly_pome = ["I'll Pome-el you!", "Take This Pome-machine Gun!"]
-const silly_pump = ["En Gourd!", "I'll Hollow You Out!"] # I really fucked myself over here, I can't top this
+const silly_corn = ["You Butter Be Sorry", "Aw Shucks!", "You're Corn-ered"]
+const silly_pome = ["I'll Pome-el you!", "A Pome-machine Gun!", "Should've Worn Your Red Pants!"]
+const silly_pump = ["En Gourd!", "I'll Hollow You Out!", "Get Squashed!"] # I really fucked myself over here, I can't top this
 
 var selected_item = ITEM.NOTHING setget select_item, get_selected_item
+var money := 0 setget set_money, get_money
 
 onready var scroll_timer: Timer = $ScrollTimer
 
@@ -153,3 +154,12 @@ func select_in_direction(direction):
 			select_item(next)
 			scroll_timer.start()
 			break
+
+
+func set_money(new_money):
+	money = new_money
+	EventBus.emit_signal("money", str(money))
+
+
+func get_money():
+	return money

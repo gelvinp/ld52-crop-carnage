@@ -9,6 +9,7 @@ onready var inventory: Inventory = get_tree().get_nodes_in_group("inventory")[0]
 onready var animation: AnimatedSprite = $AnimatedSprite
 
 var attacking := false
+var health = 100.0 setget set_health, get_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,3 +45,13 @@ func _unhandled_input(event):
 
 func _attack_finished():
 	attacking = false
+
+
+func set_health(new_health):
+	health = clamp(new_health, 0, 100)
+	if health == 0:
+		print("Death!")
+
+
+func get_health():
+	return health

@@ -32,6 +32,7 @@ func update_labels():
 	corn_seed.text = str(inventory.quantity_of(Inventory.ITEM.CORN_SEED))
 	pome_seed.text = str(inventory.quantity_of(Inventory.ITEM.POME_SEED))
 	pump_seed.text = str(inventory.quantity_of(Inventory.ITEM.PUMP_SEED))
+	coin.text = str(inventory.money)
 	corn.text = str(inventory.quantity_of(Inventory.ITEM.CORN))
 	pome.text = str(inventory.quantity_of(Inventory.ITEM.POME))
 	pump.text = str(inventory.quantity_of(Inventory.ITEM.PUMP))
@@ -39,6 +40,7 @@ func update_labels():
 
 
 func _attempt_purchase(of_item, for_cost):
-	print("Cost: ", for_cost)
-	inventory.gain_item(of_item)
-	update_labels()
+	if inventory.money >= for_cost:
+		inventory.gain_item(of_item)
+		inventory.money -= for_cost
+		update_labels()

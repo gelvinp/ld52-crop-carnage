@@ -13,6 +13,10 @@ const skin := {
 	TYPE.PEST: preload("res://enemies/enemy-red.tres")
 }
 
+const coin_pck = preload("res://pickups/PickupCoin.tscn")
+const bandage_pck = preload("res://pickups/PickupBandage.tscn")
+const water_pck = preload("res://pickups/PickupWater.tscn")
+
 export var speed: float
 export var max_health: float
 export(TYPE) var type
@@ -123,4 +127,18 @@ func damage(amount):
 	health -= amount
 	
 	if health <= 0:
+		var drop
+		
+		if rand_range(0, 100) > player.health:
+			# Spawn health
+			drop = bandage_pck.instance()
+		elif randf() <= 0.6:
+			# Spawn coin
+			drop = coin_pck.instance()
+		else:
+			drop = water_pck.instance()
+		
+		drop.global_position = global_position
+		get_tree().get_root().add_child(drop)
+		
 		queue_free()
