@@ -1,32 +1,92 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menu/credits.gd" type="Script" id=1]
+[ext_resource path="res://fonts/VT323-Regular.ttf" type="DynamicFontData" id=2]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+size = 6
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Control"]
+margin_right = 200.0
+margin_bottom = 200.0
 script = ExtResource( 1 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_left = 12.0
-margin_top = 10.0
-margin_right = 185.0
-margin_bottom = 99.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.215686, 0.176471, 0.152941, 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
-margin_right = 160.0
-margin_bottom = 48.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 200.0
+margin_bottom = 200.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
 
-[node name="Label" type="Label" parent="ScrollContainer/MarginContainer"]
-margin_right = 160.0
-margin_bottom = 48.0
-text = "Created by Patrick Gelvin
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
+size_flags_vertical = 3
 
-Other credits to come"
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
 
-[node name="Button" type="Button" parent="."]
-margin_left = 67.0
-margin_top = 113.0
-margin_right = 121.0
-margin_bottom = 133.0
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 136.0
+margin_bottom = 327.0
+custom_fonts/font = SubResource( 1 )
+text = "CROP CARNAGE
+Created by Patrick Gelvin
+
+
+This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2022 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation files
+(the \"Software\"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+
+Godot uses FreeType to render fonts.
+Portions of this software are copyright © 1996-2022
+The FreeType Project (www.freetype.org). All rights reserved."
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 192.0
+margin_bottom = 165.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 72.0
+margin_top = 169.0
+margin_right = 120.0
+margin_bottom = 192.0
+size_flags_horizontal = 4
 text = "Return"
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

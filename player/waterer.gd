@@ -29,6 +29,7 @@ func _input(event):
 			
 			if watered:
 				EventBus.emit_signal("water")
+				GlobalAudio.play("affirmative")
 		
 		queue_free()
 

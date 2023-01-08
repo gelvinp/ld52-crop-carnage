@@ -75,6 +75,7 @@ func _attack():
 	attacking = true
 	#scythe.attack(self, "")
 	animation.play("attack")
+	GlobalAudio.play("negative")
 	animation.connect("animation_finished", self, "_attack_finished", [], CONNECT_ONESHOT)
 	
 	if type == TYPE.SHOOTER:
@@ -112,6 +113,7 @@ func choose_target():
 			distance = 20000.0
 			timer.wait_time = 2.0
 		TYPE.PEST:
+			timer.wait_time = 3.0
 			var plants = get_tree().get_nodes_in_group("plant")
 			
 			if not plants.empty():
@@ -123,6 +125,9 @@ func choose_target():
 
 func damage(amount):
 	health -= amount
+	attacking = true
+	$StunTimer.start()
+	$AudioStreamPlayer.play()
 	
 	if health <= 0:
 		var drop
@@ -130,7 +135,7 @@ func damage(amount):
 		if rand_range(0, 100) > player.health:
 			# Spawn health
 			drop = bandage_pck.instance()
-		elif randf() <= 0.6:
+		elif randf() <= 0.8:
 			# Spawn coin
 			drop = coin_pck.instance()
 		else:
@@ -147,4 +152,9 @@ func damage(amount):
 			TYPE.PEST:
 				Score.score += 150
 		
+		GlobalAudio.play("enemy_death")
 		queue_free()
+
+
+func _on_StunTimer_timeout():
+	attacking = false

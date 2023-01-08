@@ -14,6 +14,7 @@ onready var inventory: Inventory = get_tree().get_nodes_in_group("inventory")[0]
 func _on_ExitShop_pressed():
 	visible = false
 	get_tree().paused = false
+	GlobalAudio.play("negative")
 
 
 func _unhandled_input(event):
@@ -21,6 +22,7 @@ func _unhandled_input(event):
 		visible = false
 		get_tree().paused = false
 		get_tree().set_input_as_handled()
+		GlobalAudio.play("negative")
 
 
 func _input(event):
@@ -44,3 +46,6 @@ func _attempt_purchase(of_item, for_cost):
 		inventory.gain_item(of_item)
 		inventory.money -= for_cost
 		update_labels()
+		GlobalAudio.play("affirmative")
+	else:
+		GlobalAudio.play("negative")

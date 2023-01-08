@@ -35,6 +35,7 @@ onready var scroll_timer: Timer = $ScrollTimer
 func _ready():
 	# Demo shit
 	gain_item(ITEM.CORN)
+	gain_item(ITEM.PUMP)
 	gain_item(ITEM.WATER)
 	select_item(ITEM.CORN)
 	
@@ -79,10 +80,10 @@ func _unhandled_input(event):
 func ammunize():
 	match selected_item:
 		ITEM.CORN:
-			EventBus.emit_signal("ammunize", Weapon.TYPE.CORN, randi() % 3 + 3)
+			EventBus.emit_signal("ammunize", Weapon.TYPE.CORN, randi() % 2 + 2)
 			EventBus.emit_signal("silly", silly_corn[randi() % silly_corn.size()])
 		ITEM.POME:
-			EventBus.emit_signal("ammunize", Weapon.TYPE.POME, randi() % 3 + 5)
+			EventBus.emit_signal("ammunize", Weapon.TYPE.POME, randi() % 3 + 4)
 			EventBus.emit_signal("silly", silly_pome[randi() % silly_pome.size()])
 		ITEM.PUMP:
 			EventBus.emit_signal("ammunize", Weapon.TYPE.PUMP, 2 if randf() >= 0.9 else 1)

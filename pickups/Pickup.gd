@@ -28,4 +28,5 @@ func _on_PickupCoin_body_entered(body):
 			TYPE.WATER:
 				inventory.gain_item(6) # Inventory.ITEM.WATER causes cyclic references. god damnit GDScript
 		
+		GlobalAudio.play("affirmative")
 		queue_free()

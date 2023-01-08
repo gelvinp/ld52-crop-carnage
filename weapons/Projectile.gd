@@ -9,7 +9,7 @@ export var damage: float
 func _physics_process(_delta):
 	var collision = move_and_collide(direction * speed)
 	if collision != null:
-		if collision.collider.name == "Enemy":
+		if collision.collider.is_in_group("enemy"):
 			collision.collider.damage(damage)
 		elif collision.collider.name == "Player":
 			collision.collider.set_health(collision.collider.get_health() - damage)

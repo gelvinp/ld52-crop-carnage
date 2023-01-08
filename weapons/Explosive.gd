@@ -18,6 +18,7 @@ func _physics_process(delta):
 		if global_position.distance_squared_to(start) >= distance:
 			speed = 0
 			animation.play("explode")
+			GlobalAudio.play("explosion")
 
 
 func explode():

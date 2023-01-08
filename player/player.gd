@@ -39,8 +39,13 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("attack") and not attacking and weapon.able_to_attack():
 		attacking = true
 		weapon.attack()
+		GlobalAudio.play("affirmative")
 		animation.play("attack")
 		animation.connect("animation_finished", self, "_attack_finished", [], CONNECT_ONESHOT)
+		
+		var attack_dir = sign(global_position.direction_to(get_global_mouse_position()).x)
+		if attack_dir != 0:
+			animation.scale.x = attack_dir
 
 
 func _attack_finished():
@@ -48,6 +53,9 @@ func _attack_finished():
 
 
 func set_health(new_health):
+	if new_health < health:
+		$AudioStreamPlayer.play()
+	
 	health = clamp(new_health, 0, 100)
 	EventBus.emit_signal("health", health)
 	

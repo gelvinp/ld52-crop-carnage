@@ -30,6 +30,7 @@ func _ready():
 	timer.start()
 	progress.max_value = growth_time
 	crop.frame = 3
+	GlobalAudio.play("affirmative")
 
 
 func _process(_delta):
@@ -42,11 +43,11 @@ func harvest():
 		var chance = randf()
 		
 		if chance <= 0.6:
-			EventBus.emit_signal("harvest", type, 3)
+			EventBus.emit_signal("harvest", type, 2)
 		elif chance <= 0.9:
-			EventBus.emit_signal("harvest", type, 4)
+			EventBus.emit_signal("harvest", type, 3)
 		else:
-			EventBus.emit_signal("harvest", type, 5)
+			EventBus.emit_signal("harvest", type, 1)
 		
 		match type:
 			TYPE.CORN:

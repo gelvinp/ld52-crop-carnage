@@ -5,42 +5,50 @@
 
 [node name="Inventory" type="HBoxContainer" groups=["inventory"]]
 margin_right = 144.0
+mouse_filter = 2
 custom_constants/separation = 24
 script = ExtResource( 1 )
 
 [node name="Corn" parent="." instance=ExtResource( 2 )]
 margin_right = 0.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="Pome" parent="." instance=ExtResource( 2 )]
 margin_left = 24.0
 margin_right = 24.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="Pump" parent="." instance=ExtResource( 2 )]
 margin_left = 48.0
 margin_right = 48.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="CornSeed" parent="." instance=ExtResource( 2 )]
 margin_left = 72.0
 margin_right = 72.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="PomeSeed" parent="." instance=ExtResource( 2 )]
 margin_left = 96.0
 margin_right = 96.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="PumpSeed" parent="." instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_right = 120.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
 margin_left = 144.0
 margin_right = 144.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="ScrollTimer" type="Timer" parent="."]
 wait_time = 0.15

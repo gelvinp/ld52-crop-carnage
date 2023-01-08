@@ -8,6 +8,7 @@ func _ready():
 	Score.end_game()
 	score.text = "Score: " + str(Score.score)
 	high_score.text = "High Score: " + str(Score.high_score)
+	$AudioStreamPlayer.play()
 
 
 func _on_Button_pressed():

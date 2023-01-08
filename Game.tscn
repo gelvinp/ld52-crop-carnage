@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menu/shop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PlayerUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/mus-loop.ogg" type="AudioStream" id=7]
 
 [node name="Game" type="Node"]
 pause_mode = 1
@@ -37,3 +38,8 @@ visible = false
 
 [node name="Shop" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -6.0

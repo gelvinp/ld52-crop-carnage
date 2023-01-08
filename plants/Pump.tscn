@@ -3,9 +3,6 @@
 [ext_resource path="res://plants/plant.tscn" type="PackedScene" id=1]
 
 [node name="Pump" instance=ExtResource( 1 )]
-growth_time = 20.0
-max_health = 20
+growth_time = 45.0
+max_health = 30
 type = 2
-
-[node name="Crop" parent="." index="3"]
-frame = 0

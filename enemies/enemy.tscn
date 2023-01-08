@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemy-red.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://weapons/EnemyMelee.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/enemy_hurt.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
 
-[node name="Enemy" type="KinematicBody2D" groups=["player"]]
+[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 scale = Vector2( 2, 2 )
 collision_layer = 4
 collision_mask = 0
@@ -24,8 +25,16 @@ frames = ExtResource( 2 )
 animation = "attack"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.35
 one_shot = true
 
 [node name="EnemyMelee" parent="." instance=ExtResource( 3 )]
 damage = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
