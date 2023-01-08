@@ -12,46 +12,72 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.215686, 0.176471, 0.152941, 1 )
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -75.0
-margin_top = 27.0
-margin_right = 75.0
-margin_bottom = 44.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 55.0
+margin_right = 200.0
+margin_bottom = 72.0
 text = "Crop Carnage"
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.0
-margin_top = -25.0
-margin_right = 27.0
-margin_bottom = 25.0
-size_flags_horizontal = 3
+[node name="Control2" type="Control" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 200.0
+margin_bottom = 89.0
 size_flags_vertical = 3
-alignment = 1
+size_flags_stretch_ratio = 0.25
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_right = 54.0
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_left = 18.0
+margin_top = 93.0
+margin_right = 182.0
+margin_bottom = 144.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+columns = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/GridContainer"]
+margin_right = 80.0
 margin_bottom = 23.0
+rect_min_size = Vector2( 80, 0 )
 text = "Play"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+[node name="TutorialButton" type="Button" parent="VBoxContainer/GridContainer"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 80, 0 )
+text = "How to play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer/GridContainer"]
 margin_top = 27.0
-margin_right = 54.0
+margin_right = 80.0
 margin_bottom = 50.0
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 54.0
-margin_right = 54.0
-margin_bottom = 77.0
+[node name="QuitButton" type="Button" parent="VBoxContainer/GridContainer"]
+margin_left = 84.0
+margin_top = 27.0
+margin_right = 164.0
+margin_bottom = 50.0
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[node name="Control3" type="Control" parent="VBoxContainer"]
+margin_top = 148.0
+margin_right = 200.0
+margin_bottom = 200.0
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
