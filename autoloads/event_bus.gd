@@ -8,6 +8,7 @@ signal ammunize(type, quantity)
 signal equip(weapon)
 signal silly(text)
 signal money(amount)
+signal health(amount)
 
 
 func _ready():

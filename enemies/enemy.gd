@@ -23,6 +23,7 @@ export(TYPE) var type
 onready var animation: AnimatedSprite = $AnimatedSprite
 onready var timer: Timer = $Timer
 onready var player: Node2D = get_tree().get_nodes_in_group("player")[0]
+onready var weapon: EnemyMelee = $EnemyMelee
 
 var attacking := false
 var target: Node2D
@@ -79,23 +80,20 @@ func _attack():
 	if type == TYPE.SHOOTER:
 		# Shoot a bullet
 		var weapon: Projectile = bullet_pck.instance()
-		weapon.speed = 7
-		weapon.damage = 10
+		weapon.speed = 4
+		weapon.damage = 7
 		get_tree().get_root().add_child(weapon)
 		weapon.global_position = global_position + Vector2(0, -32)
 		weapon.direction = weapon.global_position.direction_to(player.global_position)
 		weapon.collision_mask = 3
-	
-	# Find correct place for scythe
-#	var mouse_offset = get_global_mouse_position() - global_position
-#	if abs(mouse_offset.x) >= abs(mouse_offset.y):
-#		# Horizontal
-#		scythe.position.y = -30
-#		scythe.position.x = 16 * sign(mouse_offset.x)
-#	else:
-#		# Vertical
-#		scythe.position.x = 0
-#		scythe.position.y = 30 * sign(mouse_offset.y) - 30
+	else:
+		# Find correct place for weapon
+		weapon.position = (global_position).direction_to(target.global_position) * Vector2(24, 32)
+		
+		if type == TYPE.SWARMER:
+			weapon.attack_player()
+		else:
+			weapon.attack_plants()
 
 
 func _attack_finished():
@@ -140,5 +138,13 @@ func damage(amount):
 		
 		drop.global_position = global_position
 		get_tree().get_root().add_child(drop)
+		
+		match type:
+			TYPE.SWARMER:
+				Score.score += 50
+			TYPE.SHOOTER:
+				Score.score += 100
+			TYPE.PEST:
+				Score.score += 150
 		
 		queue_free()

@@ -49,8 +49,11 @@ func _attack_finished():
 
 func set_health(new_health):
 	health = clamp(new_health, 0, 100)
+	EventBus.emit_signal("health", health)
+	
 	if health == 0:
-		print("Death!")
+		Score.score += inventory.money * 10
+		get_tree().change_scene("res://menu/GameOver.tscn")
 
 
 func get_health():

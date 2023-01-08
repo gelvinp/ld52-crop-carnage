@@ -59,8 +59,8 @@ rotation = 0.002655
 [node name="EnemySpawner" parent="." instance=ExtResource( 4 )]
 spawn_node_path = NodePath("../YSort")
 spawn_path_node_path = NodePath("../Path2D/PathFollow2D")
-initial_max_wait = 30.0
+initial_max_wait = 25.0
 initial_min_wait = 20.0
-final_max_wait = 5.0
-final_min_wait = 0.5
-wait_decrease_speed = 3.0
+final_max_wait = 8.0
+final_min_wait = 3.0
+wait_decrease_speed = 1.5

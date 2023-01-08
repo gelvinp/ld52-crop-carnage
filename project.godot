@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/enemy.gd"
 }, {
+"base": "Node2D",
+"class": "EnemyMelee",
+"language": "GDScript",
+"path": "res://weapons/EnemyMelee.gd"
+}, {
 "base": "Area2D",
 "class": "Explosive",
 "language": "GDScript",
@@ -46,6 +51,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Enemy": "",
+"EnemyMelee": "",
 "Explosive": "",
 "Inventory": "",
 "Plant": "",
@@ -63,6 +69,7 @@ config/icon="res://icon.png"
 [autoload]
 
 EventBus="*res://autoloads/event_bus.gd"
+Score="*res://autoloads/score.gd"
 
 [display]
 

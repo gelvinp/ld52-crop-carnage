@@ -48,6 +48,14 @@ func harvest():
 		else:
 			EventBus.emit_signal("harvest", type, 5)
 		
+		match type:
+			TYPE.CORN:
+				Score.score += 20
+			TYPE.POME:
+				Score.score += 20
+			TYPE.PUMP:
+				Score.score += 50
+		
 		die()
 
 
@@ -70,3 +78,10 @@ func _on_Timer_timeout():
 		state = STATE.HARVESTABLE
 		progress.value = growth_time
 		crop.frame = type
+
+
+func damage(amount):
+	health -= amount
+	
+	if health <= 0:
+		die()
