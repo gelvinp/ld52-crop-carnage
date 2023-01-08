@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pomegranate.png-9f03edf3681be596248c5f7738f69909.stex"
+path="res://.import/equip.png-94986b7cc162d22fb7136be1d2c1ecbc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/pomegranate.png"
-dest_files=[ "res://.import/pomegranate.png-9f03edf3681be596248c5f7738f69909.stex" ]
+source_file="res://images/equip.png"
+dest_files=[ "res://.import/equip.png-94986b7cc162d22fb7136be1d2c1ecbc.stex" ]
 
 [params]
 

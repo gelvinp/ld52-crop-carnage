@@ -1,0 +1,311 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/VT323-small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://images/player.png" type="Texture" id=2]
+[ext_resource path="res://images/plant.png" type="Texture" id=3]
+[ext_resource path="res://images/water.png" type="Texture" id=4]
+[ext_resource path="res://images/harvest.png" type="Texture" id=5]
+[ext_resource path="res://images/equip.png" type="Texture" id=6]
+[ext_resource path="res://images/shop.png" type="Texture" id=7]
+[ext_resource path="res://images/pickups.png" type="Texture" id=8]
+[ext_resource path="res://images/gameplay.png" type="Texture" id=9]
+[ext_resource path="res://menu/tutorial.gd" type="Script" id=10]
+
+[node name="Node2D" type="Control"]
+margin_right = 200.0
+margin_bottom = 200.0
+script = ExtResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.215686, 0.176471, 0.152941, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 200.0
+margin_bottom = 200.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 196.0
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 159.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+use_hidden_tabs_for_min_size = true
+
+[node name="Introduction" type="Control" parent="MarginContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 25.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Introduction"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Crop Carnage is a base-defense style shooter, with a twist. Your crops and your guns are the same thing! Plant new crops to keep a continuous supply of ammunition, but don’t replant your entire yield, or you’ll only have your scythe to defend yourself with! With three different crops to grow, and three different weapons to wield, how long will you be able to defend your farm from the hordes of zombies lurking in the forest?"
+autowrap = true
+
+[node name="Basics" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Basics"]
+margin_right = 90.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Basics/VBoxContainer"]
+margin_left = 17.0
+margin_top = 13.0
+margin_right = 72.0
+margin_bottom = 77.0
+size_flags_horizontal = 4
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Basics/VBoxContainer"]
+margin_top = 81.0
+margin_right = 90.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 1 )
+text = "Use WASD to move. Use the scroll wheel or numbers 1-7 to select items in your inventory."
+align = 1
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Basics"]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Basics/VBoxContainer2"]
+margin_left = 12.0
+margin_top = 18.0
+margin_right = 77.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Basics/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 90.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 1 )
+text = "Hold the right mouse button to plant the selected crop or seed packet from your inventory."
+align = 1
+autowrap = true
+
+[node name="Harvesting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting"]
+margin_right = 92.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting/VBoxContainer"]
+margin_top = 2.0
+margin_right = 92.0
+margin_bottom = 87.0
+size_flags_horizontal = 4
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting/VBoxContainer"]
+margin_top = 91.0
+margin_right = 92.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 1 )
+text = "Crops take time to fully grow, but you can use the right mouse button while holding a watering can to grow crops instantly."
+align = 1
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting"]
+margin_left = 96.0
+margin_right = 184.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting/VBoxContainer2"]
+margin_left = 10.0
+margin_top = 7.0
+margin_right = 78.0
+margin_bottom = 72.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Harvesting/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 88.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 1 )
+text = "Use the left mouse button to harvest crops with your scythe. The scythe is the only weapon that can harvest crops (and your only melee weapon)."
+align = 1
+autowrap = true
+
+[node name="Weapons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = -4.0
+margin_bottom = -4.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Weapons"]
+margin_left = 47.0
+margin_top = 2.0
+margin_right = 137.0
+margin_bottom = 38.0
+size_flags_horizontal = 4
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Weapons"]
+margin_top = 42.0
+margin_right = 184.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press space to \"equip\" the currently selected crop from your inventory. This consumes the crop and converts it into ammunition. You cannot equip seeds. Click with the left mouse button in the desired direction to fire your currently equipped weapon. Different crops have different attack styles.
+
+You can see the currently equipped weapon, and your remaining ammo in the top left corner. Use the Q and E keys to cycle between your different weapons. Remember, only the scythe can harvest crops."
+align = 1
+autowrap = true
+
+[node name="Shop" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = -4.0
+margin_bottom = -4.0
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Shop"]
+margin_right = 11.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Shop"]
+margin_left = 15.0
+margin_right = 56.0
+margin_bottom = 86.0
+size_flags_vertical = 0
+texture = ExtResource( 7 )
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Shop"]
+margin_left = 60.0
+margin_right = 72.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Shop"]
+margin_left = 76.0
+margin_right = 168.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 8.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Shop/VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Press TAB to open the shop at any time. You can buy seed packets, crops, and watering cans, if you have enough coins."
+autowrap = true
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Shop/VBoxContainer"]
+margin_top = 31.0
+margin_right = 92.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Shop/VBoxContainer"]
+margin_left = 32.0
+margin_top = 55.0
+margin_right = 92.0
+margin_bottom = 80.0
+size_flags_horizontal = 8
+texture = ExtResource( 8 )
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Shop/VBoxContainer"]
+margin_top = 84.0
+margin_right = 92.0
+margin_bottom = 111.0
+size_flags_horizontal = 5
+custom_fonts/font = ExtResource( 1 )
+text = "Enemies can drop coins, used in the shop, bandages, which heal 1/4 of your health, and watering cans, which instantly grow crops"
+align = 2
+autowrap = true
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/TabContainer/Shop"]
+margin_left = 172.0
+margin_right = 184.0
+margin_bottom = 121.0
+size_flags_horizontal = 3
+
+[node name="Conclusion" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = -4.0
+margin_bottom = -4.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TabContainer/Conclusion"]
+margin_left = 42.0
+margin_right = 142.0
+margin_bottom = 100.0
+size_flags_horizontal = 4
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Conclusion"]
+margin_top = 104.0
+margin_right = 184.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 1 )
+text = "Get as many points before you die by harvesting crops, killing zombies, and collecting money!"
+align = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 72.0
+margin_top = 169.0
+margin_right = 120.0
+margin_bottom = 192.0
+size_flags_horizontal = 4
+text = "Return"
+
+[connection signal="tab_changed" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://menu/credits.gd" type="Script" id=1]
-[ext_resource path="res://fonts/VT323-Regular.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 6
-font_data = ExtResource( 2 )
+[ext_resource path="res://fonts/VT323-small.tres" type="DynamicFont" id=2]
 
 [node name="Node2D" type="Control"]
 margin_right = 200.0
@@ -40,7 +36,7 @@ rect_min_size = Vector2( 0, 120 )
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 136.0
 margin_bottom = 327.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "CROP CARNAGE
 Created by Patrick Gelvin
 
